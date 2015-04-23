@@ -4,3 +4,4 @@ rivr is a micro framework for data-driven websites. Leveraging the structure of 
 A simple demo of rivr in action can be found here: 
 https://dl.dropboxusercontent.com/u/57780/rivr/index.html
 
+GPLv3.0 -- as rivr is a young and ever developing micro framework, it is very important that improvements to the framework be shared with the community; so share. Plus, we'd love to see what you are using rivr.js for!
