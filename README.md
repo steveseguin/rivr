@@ -5,7 +5,6 @@ rivr is a micro framework for data-driven websites. Leveraging the structure of 
 why
 ==
 rivr was built as an alternative to angular, ember, backbone, and react; sometimes you just want something super simple. 
-licence
 how
 ==
 A simple demo of rivr in action can be found here: 
