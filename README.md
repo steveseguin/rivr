@@ -18,7 +18,7 @@ who
 rivr was made by someome who really hates learning other frameworks and feels overly constrained by the untalked about frustrations of them. "I JUST WANT SOMETHING SIMPLE".  If all you need is looping and data-field updating, based on some simple JSON data, rivr might be for you. Does gallerys of products, images, or other such things very simple.
 dependencies
 ==
-.. dependencies? HA! I think not. rivr is hand-coded pure javascript; it needs no mortal. 
+.. dependencies? HA! I think not. rivr is hand-coded pure javascript; it needs no mere mortal help. 
 sharing
 ==
 GPLv3.0 -- as rivr is a young and ever developing micro framework, it is very important that improvements to the framework be shared with the community; so share. Plus, we'd love to see what you are using rivr.js for!
