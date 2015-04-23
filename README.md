@@ -10,9 +10,9 @@ how
 A simple demo of rivr in action can be found here: 
 https://dl.dropboxusercontent.com/u/57780/rivr/index.html
 
-The main concept is that you create a hidden HTML template, and then identify an HTML element as the primary node (stone). From there, rivr looks at the classnames of elements and child elements for directions on what to do. Skip, loop thru the json, dig into the json, or update the element with the specific json key's value. rivr handles duplicating your hidden HTML template when there is a JSON loop and cleans things up when there is nothing.
+The main concept is that you create a hidden HTML template for your data, and then identify to rivr the HTML element that is the primary node (stone). From there, rivr looks at the classnames of elements and child elements for directions on what to do. Skip, loop thru the json, dig into the json, or update the element with the specific json key's value. rivr handles duplicating your hidden HTML template when there is a JSON loop and cleans things up when there is nothing.
 
-Basic rules are implemented for common HTML elements, but if you want to do post JSON data manipulation or custom data-attribute targets, you have to modify rivr to meet your needs.
+Basic rules are implemented for common HTML elements, but if you want to do post-JSON data manipulation or custom data-attribute targets, you have to modify rivr to meet your needs.
 who
 ==
 rivr was made by someome who really hates learning other frameworks and feels overly constrained by the untalked about frustrations of them. "I JUST WANT SOMETHING SIMPLE".  If all you need is looping and data-field updating, based on some simple JSON data, rivr might be for you. Does gallerys of products, images, or other such things very simple.
