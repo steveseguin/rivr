@@ -16,6 +16,9 @@ Basic rules are implemented for common HTML elements, but if you want to do post
 who
 ==
 rivr was made by someome who really hates learning other frameworks and feels overly constrained by the untalked about frustrations of them. "I JUST WANT SOMETHING SIMPLE".  If all you need is looping and data-field updating, based on some simple JSON data, rivr might be for you. Does gallerys of products, images, or other such things very simple.
+dependencies
+==
+.. dependencies? HA! I think not. rivr is hand-coded pure javascript; it needs no mortal. 
 sharing
 ==
 GPLv3.0 -- as rivr is a young and ever developing micro framework, it is very important that improvements to the framework be shared with the community; so share. Plus, we'd love to see what you are using rivr.js for!
