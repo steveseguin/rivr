@@ -26,4 +26,4 @@ issues
 ==
 rivr is very strict. if the JSON and the HTML template you built do not match up, it fails. If the JSON is empty, you lose your template. if you have a very nested HTML template things will get slow. If you want to do post JSON data manipulation or events, rivr has limited structure to aid you. it is very simple, but at the same time, very easy to hack in changes. there is no purposeful support for updating data models --- you can with some hacks, but the easiest option is to just regenerate the full structure using the first element as the template: this is not appropriate for everyone.
 
-some of these issues will be addressed in future releases. [undetermined next release date]
+some of these issues will be addressed in future releases. 
