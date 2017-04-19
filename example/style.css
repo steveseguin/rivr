@@ -1,0 +1,36 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 12px;
+	background-color:#CCC;
+}
+.products {
+	margin:20px;
+	background-color:#FFF;
+	padding:20px;
+	display: none;
+}
+.product{
+	margin:20px;
+	background-color:#EEE;
+	padding:20px;
+	display:inline-block;
+	width: 500px;
+}
+div._-name{
+	font-weight: 900;
+	padding:10px;
+}
+div._-description{
+	padding:10px;
+}
+img._-images-{
+	max-width:250px;
+	max-height:250px;
+	margin: 0 auto;
+}
+img._-thumb{
+	max-width:250px;
+	max-height:250px;
+	margin: 20px;
+}
+
