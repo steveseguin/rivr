@@ -1,9 +1,9 @@
 # rivr.js
 
-##what
+## what
 rivr is a micro framework for data-driven websites. Leveraging the structure of incoming JSON data, rivr performs simple website data-ingestion tasks easily, such as updating data-fields and performing data-loops of unknown length. Despite its simple function, adding custom rules and actions enable developers to build powerful and customized designs without complexity. 
 
-##why
+## why
 rivr was built as an alternative to angular, ember, backbone, and react; sometimes you just want something super simple. 
 
 ## how
@@ -14,7 +14,7 @@ The main concept is that you create a hidden HTML template for your data, and th
 
 Basic rules are implemented for common HTML elements, but if you want to do post-JSON data manipulation or custom data-attribute targets, you have to modify rivr to meet your needs.
 
-##who
+## who
 rivr was made by someome who really hates learning other frameworks and feels overly constrained by the untalked about frustrations of them. "I JUST WANT SOMETHING SIMPLE".  If all you need is looping and data-field updating, based on some simple JSON data, rivr might be for you. Does gallerys of products, images, or other such things very simple.
 
 ## dependencies
