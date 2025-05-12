@@ -1,30 +1,38 @@
-<div class="products _-">
-  <div class="product _-_">
-    <div class="product-header">
-      <h2 class="_-name"></h2>
-      <span class="brand _-brandName"></span>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rivr.js Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Rivr.js Product Demo</h1>
     
-    <div class="product-media _-images-">
-      <img class="_-thumb" alt="Product thumbnail" />
-      <div class="gallery-nav">
-        <!-- Additional images could be handled here -->
+    <!-- Products grid -->
+    <div class="rivr-grid products _-" style="display:none;">
+      <div class="rivr-card product _-_">
+        <div class="rivr-card-header">
+          <img class="_-images-thumb" alt="Product thumbnail">
+          <div class="rivr-card-badge _-brandName"></div>
+        </div>
+        <div class="rivr-card-content">
+          <h3 class="rivr-card-title _-name"></h3>
+          <p class="rivr-card-description _-description"></p>
+        </div>
+        <div class="rivr-card-footer">
+          <div class="rivr-flex rivr-items-center">
+            <span class="rivr-price _-price"></span>
+            <span class="rivr-original-price _-listPrice"></span>
+          </div>
+          <a class="rivr-btn _-link">Buy Now</a>
+        </div>
       </div>
-    </div>
-    
-    <div class="product-info">
-      <div class="description _-description"></div>
-      <div class="pricing">
-        <span class="price _-price"></span>
-        <span class="original-price _-listPrice"></span>
-      </div>
-    </div>
-    
-    <div class="product-actions _-">
-      <a class="_-link">
-        <button class="buy-button">Add to Cart</button>
-      </a>
-      <button class="wishlist-btn" data-id="_-id">♡</button>
     </div>
   </div>
-</div>
+
+  <script src="rivr.js"></script>
+  <<script src="main.js"></script>
+</body>
+</html>
