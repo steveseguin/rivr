@@ -1,7 +1,7 @@
-# 🌊 rivr.js
 
 <div align="center">
-
+# 🌊 rivr.js
+  
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Version](https://img.shields.io/badge/version-0.4.0-brightgreen.svg)](https://github.com/yourusername/rivr)
 [![Size](https://img.shields.io/badge/size-5.2%20kB%20minified-blue.svg)](https://github.com/yourusername/rivr)
