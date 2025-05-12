@@ -1,222 +1,241 @@
-function rivr(json, stone, options = {}) {
-    // Handle empty or invalid inputs
-    if (!stone || typeof stone.className === "undefined") return stone;
-    if (!json) {
-        console.warn("rivr: No JSON data provided");
-        return stone;
-    }
-
-    // Process options with defaults
-    const config = {
-        errorHandling: true,
-        transformers: {},
-        events: {},
-        ...options
-    };
-
-    // Process class names
-    const classes = stone.className.split(" ");
+/**
+ * rivr.js v0.4.0
+ * A micro framework for data-driven websites
+ * License: GPLv3.0
+ */
+function rivr(json, stone, config) {
+  // Base case for recursion
+  if (!stone || typeof stone.className === "undefined") return stone;
+  
+  // Initialize config object if not provided
+  config = config || {
+    dataPrefix: '_-',
+    loopIndicator: '_',
+    defaultAttr: 'innerHTML',
+    attributeMap: {
+      'IMG': 'src',
+      'SOURCE': 'src',
+      'VIDEO': 'id',
+      'A': 'href',
+      'IFRAME': 'data-src',
+      'INPUT': 'value'
+    },
+    transformers: {},
+    events: {}
+  };
+  
+  // Create a clone for safe manipulation
+  const stoneClone = stone.cloneNode(false);
+  const classes = stone.className.split(" ");
+  
+  let processedChildren = false;
+  let skipElement = false;
+  
+  // Process classes
+  for (let y = 0; y < classes.length; y++) {
+    const currentClass = classes[y];
+    // Skip if not action class
+    if (currentClass.indexOf(config.dataPrefix) !== 0) continue;
     
-    // Main loop to process each class
-    for (let y = 0; y < classes.length; y++) {
-        if (classes[y].indexOf("_-") !== 0) continue; // Skip non-action classes
+    const actions = currentClass.split("-");
+    let currentJson = json;
+    
+    // Process multi-action class
+    for (let z = 1; z < actions.length; z++) {
+      const action = actions[z];
+      
+      // Handle loop action
+      if (action === config.loopIndicator) {
+        processedChildren = true;
         
-        const actions = classes[y].split("-");
-        let currentJson = json;
-        
-        try {
-            // Process actions
-            for (let z = 1; z < actions.length; z++) {
-                const action = actions[z];
-                
-                // Handle array looping with "_"
-                if (action === "_") {
-                    if (!Array.isArray(currentJson)) {
-                        if (config.errorHandling) {
-                            console.warn(`rivr: Expected array but got ${typeof currentJson}`);
-                            return stone;
-                        }
-                        break;
-                    }
-                    
-                    const gemstone = stone.cloneNode(true);
-                    gemstone.innerHTML = "";
-                    
-                    // Allow filtering if provided
-                    const dataToProcess = config.filter ? 
-                        currentJson.filter(config.filter) : currentJson;
-                    
-                    // Process each item in the array
-                    for (let k = 0; k < dataToProcess.length; k++) {
-                        const keystone = stone.cloneNode(true);
-                        
-                        // Apply event handlers if specified
-                        if (config.events.item) {
-                            Object.entries(config.events.item).forEach(([event, handler]) => {
-                                keystone.addEventListener(event, () => handler(dataToProcess[k], k));
-                            });
-                        }
-                        
-                        // Process child nodes recursively
-                        for (let i = 0; i < keystone.childNodes.length; i++) {
-                            keystone.childNodes[i] = rivr(dataToProcess[k], keystone.childNodes[i], config);
-                        }
-                        
-                        // Remove loop class from clones to prevent re-processing
-                        if (k > 0) {
-                            keystone.className = keystone.className.replace(classes[y], "");
-                        }
-                        
-                        // Add data attributes for reference
-                        if (config.addDataAttributes) {
-                            keystone.dataset.rivrIndex = k;
-                            if (dataToProcess[k].id) keystone.dataset.rivrId = dataToProcess[k].id;
-                        }
-                        
-                        gemstone.appendChild(keystone);
-                    }
-                    
-                    stone.outerHTML = gemstone.innerHTML;
-                    break; // No more actions after a loop
-                }
-                // Handle final action
-                else if (z + 1 === actions.length) {
-                    // If blank, process children with current JSON context
-                    if (action === "") {
-                        for (let i = 0; i < stone.childNodes.length; i++) {
-                            stone.childNodes[i] = rivr(currentJson, stone.childNodes[i], config);
-                        }
-                    } 
-                    // Otherwise apply value to appropriate attribute based on element type
-                    else {
-                        const value = currentJson[action];
-                        
-                        // Skip if value is undefined and strictMode is enabled
-                        if (value === undefined && config.strictMode) {
-                            console.warn(`rivr: Property "${action}" not found in JSON`);
-                            continue;
-                        }
-                        
-                        // Apply transformers if configured
-                        const transformedValue = config.transformers[action] ? 
-                            config.transformers[action](value, currentJson) : value;
-                        
-                        // Handle different element types
-                        switch (stone.tagName) {
-                            case "IMG":
-                                stone.src = transformedValue || "";
-                                if (currentJson.alt) stone.alt = currentJson.alt;
-                                break;
-                            case "SOURCE":
-                                stone.src = transformedValue || "";
-                                break;
-                            case "VIDEO":
-                                stone.id = transformedValue || "";
-                                break;
-                            case "AUDIO":
-                                stone.src = transformedValue || "";
-                                break;
-                            case "A":
-                                stone.href = transformedValue || "#";
-                                if (config.externalLinks && stone.href.startsWith("http")) {
-                                    stone.target = "_blank";
-                                    stone.rel = "noopener noreferrer";
-                                }
-                                break;
-                            case "IFRAME":
-                                stone.setAttribute("src", transformedValue || "");
-                                break;
-                            case "INPUT":
-                                stone.value = transformedValue || "";
-                                break;
-                            case "SELECT":
-                                if (Array.isArray(transformedValue)) {
-                                    transformedValue.forEach(option => {
-                                        const opt = document.createElement("option");
-                                        opt.value = option.value || option;
-                                        opt.textContent = option.label || option;
-                                        stone.appendChild(opt);
-                                    });
-                                } else {
-                                    stone.value = transformedValue || "";
-                                }
-                                break;
-                            default:
-                                // For other elements, update innerHTML
-                                stone.innerHTML = transformedValue !== undefined ? 
-                                    transformedValue : "";
-                        }
-                        
-                        // Apply attributes if specified in config
-                        if (config.attributeMap && config.attributeMap[action]) {
-                            const attributesToSet = config.attributeMap[action];
-                            Object.entries(attributesToSet).forEach(([attr, jsonField]) => {
-                                if (currentJson[jsonField] !== undefined) {
-                                    stone.setAttribute(attr, currentJson[jsonField]);
-                                }
-                            });
-                        }
-                    }
-                    break;
-                } 
-                // Navigate deeper into JSON structure
-                else {
-                    currentJson = currentJson[action];
-                    
-                    // Handle undefined JSON paths
-                    if (currentJson === undefined) {
-                        if (config.errorHandling) {
-                            console.warn(`rivr: Path "${action}" not found in JSON`);
-                            return stone;
-                        }
-                        break;
-                    }
-                }
-            }
-        } catch (error) {
-            if (config.errorHandling) {
-                console.error("rivr: Error processing template", error);
-            }
-            // Return original element on error if error handling is enabled
-            return config.errorHandling ? stone : null;
+        // Skip if JSON is not an array
+        if (!Array.isArray(currentJson)) {
+          console.warn('rivr: Expected array for loop but got:', typeof currentJson);
+          skipElement = true;
+          break;
         }
+        
+        const gemstone = document.createDocumentFragment();
+        
+        // Loop through JSON array
+        for (let k = 0; k < currentJson.length; k++) {
+          const keystone = stone.cloneNode(true);
+          
+          // Process children with current JSON item
+          for (let i = 0; i < keystone.childNodes.length; i++) {
+            keystone.childNodes[i] = rivr(currentJson[k], keystone.childNodes[i], config);
+          }
+          
+          // Remove loop class from duplicates
+          if (k > 0) {
+            keystone.className = keystone.className.replace(currentClass, "").trim();
+          }
+          
+          // Add event handlers if defined
+          if (config.events && typeof config.events === 'object') {
+            for (const eventName in config.events) {
+              if (currentJson[k].id) { // Add event only if item has ID for reference
+                keystone.setAttribute('data-item-id', currentJson[k].id);
+                keystone.addEventListener(eventName, function(e) {
+                  config.events[eventName](currentJson[k], e, this);
+                });
+              }
+            }
+          }
+          
+          gemstone.appendChild(keystone);
+        }
+        
+        // Replace original element with fragment
+        while (stoneClone.firstChild) {
+          stoneClone.removeChild(stoneClone.firstChild);
+        }
+        stoneClone.appendChild(gemstone);
+        return stoneClone;
+      } 
+      // Handle final action
+      else if (z + 1 === actions.length) {
+        // If empty action, process children
+        if (action === "") {
+          processedChildren = true;
+          for (let i = 0; i < stone.childNodes.length; i++) {
+            const processed = rivr(currentJson, stone.childNodes[i], config);
+            if (processed) {
+              stoneClone.appendChild(processed.cloneNode(true));
+            }
+          }
+        } else {
+          // Process data field mapping
+          const key = action;
+          const value = currentJson[key];
+          
+          // Skip if value is undefined
+          if (value === undefined) {
+            console.warn(`rivr: Key '${key}' not found in JSON`, currentJson);
+            continue;
+          }
+          
+          // Apply transformers if defined
+          let transformedValue = value;
+          if (config.transformers && config.transformers[key]) {
+            transformedValue = config.transformers[key](value, currentJson);
+          }
+          
+          // Apply to appropriate attribute
+          const tagName = stone.tagName;
+          let attribute = config.attributeMap[tagName] || config.defaultAttr;
+          
+          if (attribute === 'innerHTML') {
+            stoneClone.innerHTML = transformedValue;
+          } else {
+            stoneClone.setAttribute(attribute, transformedValue);
+          }
+        }
+        
+        break;
+      } 
+      // Navigate deeper into JSON
+      else {
+        currentJson = currentJson[action];
+        if (currentJson === undefined) {
+          console.warn(`rivr: Path segment '${action}' not found`, json);
+          skipElement = true;
+          break;
+        }
+      }
     }
     
-    return stone;
+    // Only process first action class
+    break;
+  }
+  
+  // Handle children if not already processed
+  if (!processedChildren && !skipElement) {
+    for (let i = 0; i < stone.childNodes.length; i++) {
+      const childNode = stone.childNodes[i];
+      const processed = rivr(json, childNode, config);
+      if (processed) {
+        stoneClone.appendChild(processed.cloneNode(true));
+      }
+    }
+  }
+  
+  return skipElement ? null : stoneClone;
 }
 
-// Helper function to load JSON from URL
-rivr.loadJSON = function(url, callback) {
-    return fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (callback && typeof callback === 'function') {
-                callback(data);
-            }
-            return data;
-        })
-        .catch(error => {
-            console.error("rivr: Error loading JSON:", error);
-            throw error;
-        });
-};
-
-// Utility for rendering multiple templates simultaneously
-rivr.renderAll = function(json, selector, options) {
-    const elements = document.querySelectorAll(selector);
-    Array.from(elements).forEach(el => rivr(json, el, options));
-};
-
-// Add conditional rendering capability
-rivr.if = function(condition, stone, json, options) {
-    if (!condition) {
-        stone.style.display = 'none';
-        return stone;
+// Helper function to initialize rivr with configuration
+function initRivr(selector, jsonData, options) {
+  const container = document.querySelector(selector);
+  if (!container) {
+    console.error(`rivr: Container not found: ${selector}`);
+    return;
+  }
+  
+  const config = Object.assign({
+    dataPrefix: '_-',
+    loopIndicator: '_',
+    defaultAttr: 'innerHTML',
+    attributeMap: {
+      'IMG': 'src',
+      'SOURCE': 'src',
+      'VIDEO': 'id',
+      'A': 'href',
+      'IFRAME': 'data-src',
+      'INPUT': 'value'
+    },
+    transformers: {},
+    events: {},
+    onRender: null
+  }, options || {});
+  
+  // Process the container with JSON data
+  const rendered = rivr(jsonData, container, config);
+  
+  // Replace original container
+  if (rendered) {
+    container.parentNode.replaceChild(rendered, container);
+    
+    // Call onRender callback if provided
+    if (typeof config.onRender === 'function') {
+      config.onRender(container, jsonData);
     }
-    return rivr(json, stone, options);
-};
+  }
+  
+  return container;
+}
+
+// Add utility for AJAX loading
+function rivrLoad(selector, url, options) {
+  const container = document.querySelector(selector);
+  if (!container) {
+    console.error(`rivr: Container not found: ${selector}`);
+    return Promise.reject('Container not found');
+  }
+  
+  // Show loading state
+  if (options && options.loadingTemplate) {
+    container.innerHTML = options.loadingTemplate;
+  } else {
+    container.innerHTML = '<div class="rivr-loading">Loading...</div>';
+  }
+  
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      return initRivr(selector, data, options);
+    })
+    .catch(error => {
+      console.error('rivr: Error loading data', error);
+      if (options && options.errorTemplate) {
+        container.innerHTML = options.errorTemplate;
+      } else {
+        container.innerHTML = '<div class="rivr-error">Error loading data</div>';
+      }
+      return Promise.reject(error);
+    });
+}
