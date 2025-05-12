@@ -309,16 +309,19 @@
   }
 };
 
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Modify this to pass the products array directly
-  rivr('.products', data.examples.products, {
+  // Use initRivr instead of rivr directly
+  initRivr('.products', data.examples.products, {
     transformers: {
       'price': function(value, item) {
         return value ? '$' + value : '$' + item.listPrice;
       },
       'description': function(value) {
         return value.length > 100 ? value.substring(0, 97) + '...' : value;
+      },
+      'images-thumb': function(value, item) {
+        // Just return a placeholder for testing
+        return value || 'https://placehold.co/600x400';
       }
     },
     events: {
