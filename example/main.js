@@ -312,7 +312,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   // Modify this to pass the products array directly
-  initRivr('.products', data.examples.products, {
+  rivr('.products', data.examples.products, {
     transformers: {
       'price': function(value, item) {
         return value ? '$' + value : '$' + item.listPrice;
