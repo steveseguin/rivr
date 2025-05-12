@@ -1,8 +1,3 @@
-/**
- * rivr.js v0.5.0
- * A micro framework for data-driven websites
- * License: GPLv3.0
- */
 function rivr(json, stone, config) {
   // Base case for recursion
   if (!stone || typeof stone.className === "undefined") return stone;
@@ -162,4 +157,85 @@ function rivr(json, stone, config) {
   }
   
   return stone;
+}
+
+// Helper function to initialize rivr with configuration
+function initRivr(selector, jsonData, options) {
+  const container = document.querySelector(selector);
+  if (!container) {
+    console.error(`rivr: Container not found: ${selector}`);
+    return;
+  }
+  
+  const config = Object.assign({
+    dataPrefix: '_-',
+    loopIndicator: '_',
+    defaultAttr: 'innerHTML',
+    attributeMap: {
+      'IMG': 'src',
+      'SOURCE': 'src',
+      'VIDEO': 'id',
+      'A': 'href',
+      'IFRAME': 'data-src',
+      'INPUT': 'value'
+    },
+    transformers: {},
+    events: {},
+    onRender: null
+  }, options || {});
+  
+  // Clone the container to preserve the template
+  const template = container.cloneNode(true);
+  
+  // Process the template with JSON data
+  rivr(jsonData, template, config);
+  
+  // Show the container (it might have been hidden)
+  template.style.display = 'block';
+  
+  // Replace original container
+  container.parentNode.replaceChild(template, container);
+    
+  // Call onRender callback if provided
+  if (typeof config.onRender === 'function') {
+    config.onRender(template, jsonData);
+  }
+  
+  return template;
+}
+
+// Add utility for AJAX loading
+function rivrLoad(selector, url, options) {
+  const container = document.querySelector(selector);
+  if (!container) {
+    console.error(`rivr: Container not found: ${selector}`);
+    return Promise.reject('Container not found');
+  }
+  
+  // Show loading state
+  if (options && options.loadingTemplate) {
+    container.innerHTML = options.loadingTemplate;
+  } else {
+    container.innerHTML = '<div class="rivr-loading">Loading...</div>';
+  }
+  
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      return initRivr(selector, data, options);
+    })
+    .catch(error => {
+      console.error('rivr: Error loading data', error);
+      if (options && options.errorTemplate) {
+        container.innerHTML = options.errorTemplate;
+      } else {
+        container.innerHTML = '<div class="rivr-error">Error loading data</div>';
+      }
+      return Promise.reject(error);
+    });
 }
