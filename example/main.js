@@ -94,5 +94,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Make products visible
-    document.querySelector('.products').style.display = 'grid';
+    document.querySelector('.products')?.style.display = 'grid';
 });
