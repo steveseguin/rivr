@@ -1,6 +1,4 @@
-// Example usage
-document.addEventListener('DOMContentLoaded', function() {
-  // Basic usage with fetch
+
   const data = {
   "metadata": {
     "title": "Rivr.js Capabilities Demo",
@@ -310,7 +308,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 };
-  initRivr('.products', data, {
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Modify this to pass the products array directly
+  initRivr('.products', data.examples.products, {
     transformers: {
       'price': function(value, item) {
         return value ? '$' + value : '$' + item.listPrice;
