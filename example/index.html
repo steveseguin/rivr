@@ -7,24 +7,16 @@
 </script>
 </head>
 <body>
-<div class='products _-'>
-	<div class='product _-_'>
-			<div class='_-name'>
-			</div>
-			<div class='_-description'>
-			</div>
-			<div class='_-price'>
-			</div>
-			<div class='_-'>
-				<a class='_-link'>
-					<button>Buy</button>
-				</a>
-			</div>
-			<div class='_-images-'>
-				<img class='_-thumb' />
-			</div>
-	</div>
+<div class="controls">
+    <input type="text" id="product-search" placeholder="Search products...">
+    <select id="product-sort">
+        <option value="">Sort by...</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name">Name</option>
+    </select>
 </div>
+<div class="error-message"></div>
 <script type="text/javascript" src="rivr.js"></script>
 <script type="text/javascript" src="main.js"></script>
 </body>
