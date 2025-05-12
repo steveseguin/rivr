@@ -6,8 +6,6 @@
 [![Version](https://img.shields.io/badge/version-0.4.0-brightgreen.svg)](https://github.com/yourusername/rivr)
 [![Size](https://img.shields.io/badge/size-5.2%20kB%20minified-blue.svg)](https://github.com/yourusername/rivr)
 
-**A streamlined micro-framework for data-driven web applications**
-
 [Demo](https://github.com/yourusername/rivr) • [Documentation](https://github.com/yourusername/rivr) • [Examples](https://github.com/yourusername/rivr)
 
 </div>
