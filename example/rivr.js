@@ -1,5 +1,5 @@
 /**
- * rivr.js v0.4.0
+ * rivr.js v0.4.1
  * A micro framework for data-driven websites
  * License: GPLv3.0
  */
@@ -24,19 +24,17 @@ function rivr(json, stone, config) {
     events: {}
   };
   
-  // Create a clone for safe manipulation
-  const stoneClone = stone.cloneNode(false);
-  const classes = stone.className.split(" ");
-  
-  let processedChildren = false;
-  let skipElement = false;
-  
   // Process classes
+  const classes = stone.className.split(" ");
+  let hasActionClass = false;
+  let processedChildren = false;
+  
   for (let y = 0; y < classes.length; y++) {
     const currentClass = classes[y];
     // Skip if not action class
     if (currentClass.indexOf(config.dataPrefix) !== 0) continue;
     
+    hasActionClass = true;
     const actions = currentClass.split("-");
     let currentJson = json;
     
@@ -51,47 +49,47 @@ function rivr(json, stone, config) {
         // Skip if JSON is not an array
         if (!Array.isArray(currentJson)) {
           console.warn('rivr: Expected array for loop but got:', typeof currentJson);
-          skipElement = true;
-          break;
+          return stone;
         }
         
-        const gemstone = document.createDocumentFragment();
+        const fragment = document.createDocumentFragment();
         
         // Loop through JSON array
         for (let k = 0; k < currentJson.length; k++) {
-          const keystone = stone.cloneNode(true);
+          const clone = stone.cloneNode(true);
           
           // Process children with current JSON item
-          for (let i = 0; i < keystone.childNodes.length; i++) {
-            keystone.childNodes[i] = rivr(currentJson[k], keystone.childNodes[i], config);
+          for (let i = 0; i < clone.childNodes.length; i++) {
+            const processed = rivr(currentJson[k], clone.childNodes[i], config);
+            if (processed && processed !== clone.childNodes[i]) {
+              clone.replaceChild(processed, clone.childNodes[i]);
+            }
           }
           
           // Remove loop class from duplicates
           if (k > 0) {
-            keystone.className = keystone.className.replace(currentClass, "").trim();
+            clone.className = clone.className.replace(currentClass, "").trim();
           }
           
           // Add event handlers if defined
           if (config.events && typeof config.events === 'object') {
             for (const eventName in config.events) {
               if (currentJson[k].id) { // Add event only if item has ID for reference
-                keystone.setAttribute('data-item-id', currentJson[k].id);
-                keystone.addEventListener(eventName, function(e) {
+                clone.setAttribute('data-item-id', currentJson[k].id);
+                clone.addEventListener(eventName, function(e) {
                   config.events[eventName](currentJson[k], e, this);
                 });
               }
             }
           }
           
-          gemstone.appendChild(keystone);
+          fragment.appendChild(clone);
         }
         
-        // Replace original element with fragment
-        while (stoneClone.firstChild) {
-          stoneClone.removeChild(stoneClone.firstChild);
-        }
-        stoneClone.appendChild(gemstone);
-        return stoneClone;
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(fragment);
+        stone.outerHTML = wrapper.innerHTML;
+        return null; // Signal that this node has been processed
       } 
       // Handle final action
       else if (z + 1 === actions.length) {
@@ -100,8 +98,8 @@ function rivr(json, stone, config) {
           processedChildren = true;
           for (let i = 0; i < stone.childNodes.length; i++) {
             const processed = rivr(currentJson, stone.childNodes[i], config);
-            if (processed) {
-              stoneClone.appendChild(processed.cloneNode(true));
+            if (processed && processed !== stone.childNodes[i]) {
+              stone.replaceChild(processed, stone.childNodes[i]);
             }
           }
         } else {
@@ -126,9 +124,9 @@ function rivr(json, stone, config) {
           let attribute = config.attributeMap[tagName] || config.defaultAttr;
           
           if (attribute === 'innerHTML') {
-            stoneClone.innerHTML = transformedValue;
+            stone.innerHTML = transformedValue;
           } else {
-            stoneClone.setAttribute(attribute, transformedValue);
+            stone.setAttribute(attribute, transformedValue);
           }
         }
         
@@ -139,8 +137,7 @@ function rivr(json, stone, config) {
         currentJson = currentJson[action];
         if (currentJson === undefined) {
           console.warn(`rivr: Path segment '${action}' not found`, json);
-          skipElement = true;
-          break;
+          return stone;
         }
       }
     }
@@ -149,18 +146,17 @@ function rivr(json, stone, config) {
     break;
   }
   
-  // Handle children if not already processed
-  if (!processedChildren && !skipElement) {
+  // Handle children if not already processed and has no action class
+  if (!processedChildren && !hasActionClass) {
     for (let i = 0; i < stone.childNodes.length; i++) {
-      const childNode = stone.childNodes[i];
-      const processed = rivr(json, childNode, config);
-      if (processed) {
-        stoneClone.appendChild(processed.cloneNode(true));
+      const processed = rivr(json, stone.childNodes[i], config);
+      if (processed && processed !== stone.childNodes[i]) {
+        stone.replaceChild(processed, stone.childNodes[i]);
       }
     }
   }
   
-  return skipElement ? null : stoneClone;
+  return stone;
 }
 
 // Helper function to initialize rivr with configuration
@@ -188,20 +184,24 @@ function initRivr(selector, jsonData, options) {
     onRender: null
   }, options || {});
   
-  // Process the container with JSON data
-  const rendered = rivr(jsonData, container, config);
+  // Clone the container to preserve the template
+  const template = container.cloneNode(true);
+  
+  // Process the template with JSON data
+  rivr(jsonData, template, config);
+  
+  // Show the container (it might have been hidden)
+  template.style.display = 'block';
   
   // Replace original container
-  if (rendered) {
-    container.parentNode.replaceChild(rendered, container);
+  container.parentNode.replaceChild(template, container);
     
-    // Call onRender callback if provided
-    if (typeof config.onRender === 'function') {
-      config.onRender(container, jsonData);
-    }
+  // Call onRender callback if provided
+  if (typeof config.onRender === 'function') {
+    config.onRender(template, jsonData);
   }
   
-  return container;
+  return template;
 }
 
 // Add utility for AJAX loading
