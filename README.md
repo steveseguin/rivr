@@ -1,4 +1,4 @@
-# 🌊 rivr.js
+# 🌊 rivr.js - **A streamlined micro-framework for data-driven web applications**
 
 <div align="center">
   
