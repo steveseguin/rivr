@@ -1,7 +1,315 @@
 // Example usage
 document.addEventListener('DOMContentLoaded', function() {
   // Basic usage with fetch
-  var data = [{"id":"35067484","externalID":"237772127","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Zoom Stefan Janoski Canvas Mens Shoes","description":"Nike SB Zoom Stefan Janoski shoes. Canvas upper with Nike SB swoosh embroidery at sides. Nike SB Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"84.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237772127.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237772127.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237772127.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237772127.jpg"},"linkout":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237772127%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237772127%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"},"debug":{"image":"https:\/\/s3.amazonaws.com\/slyce\/one2one\/542de2b9b579a.jpg"}},{"id":"35067488","externalID":"237779750","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Zoom Stefan Janoski Mens Shoes","description":"Nike SB Zoom Stefan Janoski shoes. Suede upper with Nike SB swoosh embroidery at sides. Nike SB Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"89.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237779750.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237779750.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237779750.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237779750.jpg"},"linkout":"http:\/\/www.jdoqocy.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237779750%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.jdoqocy.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237779750%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34309180","externalID":"216723129","provider":"one2one","brandName":"Tillys","name":"NIKE Zoom Stefan Janoski Mens Shoes","description":"Nike Zoom Stefan Janoski shoes. Canvas upper with Nike swoosh embroidery at sides. Nike Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"79.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/216723129.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/216723129.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/216723129.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/216723129.jpg"},"linkout":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D216723129%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D216723129%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34311526","externalID":"227698400","provider":"one2one","brandName":"Tillys","name":"NIKE Zoom Stefan Janoski Mens Shoes","description":"Nike Zoom Stefan Janoski shoes. Suede upper with Nike swoosh embroidery at sides. Nike Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"79.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/227698400.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/227698400.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/227698400.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/227698400.jpg"},"linkout":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D227698400%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D227698400%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34313276","externalID":"230673115","provider":"one2one","brandName":"Tillys","name":"NIKE Zoom Stefan Janoski Mens Shoes","description":"Nike Zoom Stefan Janoski shoes. Canvas upper with Nike swoosh embroidery at sides. Nike Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"79.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230673115.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230673115.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230673115.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230673115.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D230673115%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D230673115%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35066394","externalID":"232104150","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Zoom Stefan Janoski Mens Shoes","description":"Nike SB Zoom Stefan Janoski shoes. Canvas upper with Nike SB swoosh embroidery at sides. Nike SB Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"79.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232104150.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232104150.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232104150.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232104150.jpg"},"linkout":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D232104150%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D232104150%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34314209","externalID":"232110300","provider":"one2one","brandName":"Tillys","name":"NIKE Zoom Stefan Janoski Canvas Mens Shoes","description":"Nike Zoom Stefan Janoski shoes. Canvas upper with Nike swoosh embroidery at sides. Nike Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"79.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232110300.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232110300.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232110300.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/232110300.jpg"},"linkout":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D232110300%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D232110300%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067487","externalID":"237778125","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Zoom Stefan Janoski Premium SE Mens Shoes","description":"Nike SB Zoom Stefan Janoski Premium SE shoes. Suede upper with Nike SB swoosh screened at sides. Nike SB Zoom for low-profile cushioning and lightweight performance. Autoclave construction fuses the outsole to the upper for a classic streamlined look and feel. One-piece heel to midfoot overlay for streamlined support. Rubber outsole with herringbone traction pattern for durability, superior grip and easy change of direction. Imported.","price":"","listPrice":"89.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237778125.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237778125.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237778125.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237778125.jpg"},"linkout":"http:\/\/www.jdoqocy.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237778125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.jdoqocy.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237778125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067485","externalID":"237776127","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Zoom Stefan Janoski Leather Mens Shoes","description":"Nike SB Zoom Stefan Janoski Leather shoes. Leather upper for comfort and superior durability. Flexible vulcanised construction with tacky gum rubber outsole for traction and durability. Herringbone pattern at outsole for grip and traction. Suede collar lining for comfort. Honeycomb construction for comfort. Cork footbed for comfort. Imported.","price":"","listPrice":"89.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237776127.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237776127.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237776127.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237776127.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237776127%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237776127%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067490","externalID":"237781210","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Braata LR Canvas Mens Shoes","description":"Nike SB Brataa LR Canvas shoes. Canvas upper for comfort and support. Seam-free sockliner and insole for superb comfort. Nike SB Free-inspired pods for more natural movement and an extraordinary feel. Elastic gusseted tongue lets you wear the shoe like a slip-on when laces are removed. Rubber outsole. Imported.","price":"","listPrice":"69.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237781210.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237781210.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237781210.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237781210.jpg"},"linkout":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237781210%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237781210%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067491","externalID":"237783100","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Braata LR Canvas Mens Shoes","description":"Nike SB Brataa LR Canvas shoes. Canvas upper for comfort and support. Seam-free sockliner and insole for superb comfort. Nike SB Free-inspired pods for more natural movement and an extraordinary feel. Elastic gusseted tongue lets you wear the shoe like a slip-on when laces are removed. Rubber outsole. Imported.","price":"","listPrice":"69.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237783100.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237783100.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237783100.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237783100.jpg"},"linkout":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237783100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237783100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34307930","externalID":"185886125","provider":"one2one","brandName":"Tillys","name":"NIKE Braata Canvas Mens Shoes","description":"Nike Braata shoes. Lightweight. Textile upper. Tonal stitching. Contrast Nike swoosh embroidery at rear quarter panel. Nike tongue label. Padded collar. Rubber outsole with heavy tread. Imported.","price":"","listPrice":"64.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185886125.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185886125.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185886125.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185886125.jpg"},"linkout":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D185886125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D185886125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34307929","externalID":"185872110","provider":"one2one","brandName":"Tillys","name":"NIKE Braata Canvas Mens Shoes","description":"Nike Braata shoes. Lightweight. Textile upper. Tonal stitching. Contrast Nike swoosh embroidery at rear quarter panel. Nike tongue label. Padded collar. Rubber outsole with heavy tread. Imported.","price":"","listPrice":"64.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185872110.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185872110.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185872110.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/185872110.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D185872110%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D185872110%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34313273","externalID":"230670131","provider":"one2one","brandName":"Tillys","name":"NIKE Braata LR Canvas Mens Shoes","description":"Nike Brataa LR Canvas shoes. Canvas upper for comfort and support. Seam-free sockliner and insole for superb comfort. Nike Free-inspired pods for more natural movement and an extraordinary feel. Elastic gusseted tongue lets you wear the shoe like a slip-on when laces are removed. Rubber outsole. Imported.","price":"","listPrice":"64.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230670131.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230670131.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230670131.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/230670131.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D230670131%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D230670131%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"34308494","externalID":"207697100","provider":"one2one","brandName":"Tillys","name":"NIKE Satire Canvas Mens Shoes","description":"Nike Satire Canvas shoes. Canvas upper with Nike swoosh embroidery at side. Nike logo tag on tag. Rubber outsole. Imported.","price":"","listPrice":"67.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207697100.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207697100.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207697100.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207697100.jpg"},"linkout":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D207697100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.tkqlhce.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D207697100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35065758","externalID":"207693111","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Satire Canvas Mens Shoes","description":"Nike SB Satire Canvas shoes. Canvas upper with Nike SB swoosh embroidery at side. Nike SB logo tag on tag. Rubber outsole. Imported.","price":"","listPrice":"67.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207693111.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207693111.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207693111.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/207693111.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D207693111%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D207693111%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35446334","externalID":"237786178","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Satire Mens Shoes","description":"Nike SB Satire shoes. Suede upper with canvas panel at back of heel. Autoclave construction fuses midsole and outsole for greater durability and a classic look. Rubber outsole with herringbone pattern for durability and excellent grip. Imported.","price":"","listPrice":"67.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237786178.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237786178.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237786178.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237786178.jpg"},"linkout":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237786178%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.kqzyfj.com\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237786178%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067493","externalID":"237789184","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Paul Rodriguez 8 Mens Shoes","description":"Nike SB Paul Rodriguez 8 shoes. The Nike P-ROD 8 brings 360 degrees of Nike Lunarlon impact protection to the design, delivering lightweight, responsive cushioning plus the board feel that skaters need. The Hyperscreen+ traction layer amplifies durability, and the dynamic Nike Flywire cables are the ultimate solution for an adaptive fit. The P-ROD 8s outsole traction pattern was created to provide great grip during flicks and flips. Imported.","price":"","listPrice":"129.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237789184.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237789184.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237789184.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237789184.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237789184%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237789184%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067494","externalID":"237791100","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Paul Rodriguez Citadel Mens Shoes","description":"The Nike SB Paul Rodriguez Citadel Mens Shoe combines Flywire technology and Lunarlon foam for lightweight support and maximum impact protection. Synthetic upper for style and durability. Flat Flywire cables for a dynamic, supportive fit. Lunarlon sockliner and midsole for maximum impact protection. Rubber outsole with modified herringbone pattern for flexibility and traction. Imported.","price":"","listPrice":"99.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237791100.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237791100.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237791100.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237791100.jpg"},"linkout":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237791100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.anrdoezrs.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237791100%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}},{"id":"35067495","externalID":"237794125","provider":"one2one","brandName":"Nike SB","name":"NIKE SB Lunar One Shot Mens Shoes","description":"Nike SB Lunar One Shot shoes. Low-profile upper with tacky surface for durability and boardfeel. Cut-away heel panel with mesh lining for breathability and less bulk. Lunarlon midsole for springy, resilient cushioning. Flexible rubber outsole with herringbone traction pattern for optimal grip and natural range of motion. Imported.","price":"","listPrice":"114.99","stock":"1","currencyCode":"","image":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237794125.jpg","images":{"thumb":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237794125.jpg","large":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237794125.jpg","regular":"http:\/\/www.tillys.com\/tillys\/images\/catalog\/medium\/237794125.jpg"},"linkout":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237794125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","link":"http:\/\/www.dpbolvw.net\/click-7506471-10462774?url=http%3A%2F%2Fwww.tillys.com%2Ftillys%2Fvariants.aspx%3Fprod%3D237794125%26cid%3D1024%26ctlg%3D010_Guys%26source%3D15%26aref%3Dcj","category":"3","reviews":{"title":"Review Title","date":"M\/D\/YYYY","comment":"Review Comment"}}];
+  const data = {
+  "metadata": {
+    "title": "Rivr.js Capabilities Demo",
+    "version": "1.0.0",
+    "description": "A comprehensive demonstration of rivr.js features and capabilities",
+    "lastUpdated": "2025-05-12T12:00:00Z"
+  },
+  "showcase": [
+    {
+      "id": "data-binding",
+      "title": "Simple Data Binding",
+      "description": "Demonstrates basic text and attribute binding capabilities",
+      "code": "class=\"_-title\"",
+      "image": "binding.svg",
+      "tags": ["basic", "binding", "text"]
+    },
+    {
+      "id": "array-iteration",
+      "title": "Array Iteration",
+      "description": "Shows how to loop through arrays of data with the _-_ directive",
+      "code": "class=\"items _-_\"",
+      "image": "array.svg",
+      "tags": ["arrays", "loops", "iteration"]
+    },
+    {
+      "id": "nested-data",
+      "title": "Nested Data Access",
+      "description": "Accessing deeply nested JSON properties with path notation",
+      "code": "class=\"_-user-profile-avatar\"",
+      "image": "nested.svg",
+      "tags": ["nested", "objects", "dot-notation"]
+    },
+    {
+      "id": "transformers",
+      "title": "Data Transformers",
+      "description": "Format data using transformer functions before rendering",
+      "code": "transformers: { 'price': value => '$' + value }",
+      "image": "transform.svg",
+      "tags": ["formatting", "functions", "processing"]
+    }
+  ],
+  "examples": {
+    "products": [
+      {
+        "id": "prod-001",
+        "name": "Premium Bluetooth Headphones",
+        "description": "Immersive sound with active noise cancellation for the ultimate listening experience",
+        "price": 249.99,
+        "discountedPrice": 199.99,
+        "currency": "USD",
+        "rating": 4.8,
+        "reviewCount": 1243,
+        "inStock": true,
+        "categories": ["electronics", "audio", "wireless"],
+        "images": {
+          "thumbnail": "headphones-thumb.jpg",
+          "gallery": ["headphones-1.jpg", "headphones-2.jpg", "headphones-3.jpg"],
+          "featured": "headphones-featured.jpg"
+        },
+        "specs": {
+          "brand": "SoundWave",
+          "model": "ProAudio X1",
+          "connectivity": "Bluetooth 5.2",
+          "batteryLife": "30 hours",
+          "color": "Midnight Black"
+        },
+        "variants": [
+          { "id": "var-001", "color": "Midnight Black", "inStock": true },
+          { "id": "var-002", "color": "Arctic White", "inStock": true },
+          { "id": "var-003", "color": "Navy Blue", "inStock": false }
+        ]
+      },
+      {
+        "id": "prod-002",
+        "name": "Smart Fitness Tracker",
+        "description": "Track your health metrics and workouts with this advanced wearable device",
+        "price": 179.95,
+        "discountedPrice": 149.95,
+        "currency": "USD",
+        "rating": 4.6,
+        "reviewCount": 856,
+        "inStock": true,
+        "categories": ["electronics", "fitness", "wearables"],
+        "images": {
+          "thumbnail": "tracker-thumb.jpg",
+          "gallery": ["tracker-1.jpg", "tracker-2.jpg", "tracker-3.jpg"],
+          "featured": "tracker-featured.jpg"
+        },
+        "specs": {
+          "brand": "FitTech",
+          "model": "Pulse Pro",
+          "connectivity": "Bluetooth 5.0",
+          "batteryLife": "7 days",
+          "color": "Graphite"
+        },
+        "variants": [
+          { "id": "var-004", "color": "Graphite", "inStock": true },
+          { "id": "var-005", "color": "Rose Gold", "inStock": true },
+          { "id": "var-006", "color": "Silver", "inStock": true }
+        ]
+      },
+      {
+        "id": "prod-003",
+        "name": "Ultra-Thin Laptop",
+        "description": "Powerful performance in an incredibly lightweight and portable design",
+        "price": 1299.00,
+        "discountedPrice": 1199.00,
+        "currency": "USD",
+        "rating": 4.9,
+        "reviewCount": 2105,
+        "inStock": false,
+        "categories": ["electronics", "computers", "laptops"],
+        "images": {
+          "thumbnail": "laptop-thumb.jpg",
+          "gallery": ["laptop-1.jpg", "laptop-2.jpg", "laptop-3.jpg"],
+          "featured": "laptop-featured.jpg"
+        },
+        "specs": {
+          "brand": "TechEdge",
+          "model": "Slim X Pro",
+          "processor": "Intel Core i7-1260P",
+          "memory": "16GB",
+          "storage": "512GB SSD",
+          "display": "14-inch 4K OLED"
+        },
+        "variants": [
+          { "id": "var-007", "memory": "16GB", "storage": "512GB", "inStock": false },
+          { "id": "var-008", "memory": "16GB", "storage": "1TB", "inStock": false },
+          { "id": "var-009", "memory": "32GB", "storage": "1TB", "inStock": false }
+        ]
+      }
+    ],
+    "users": [
+      {
+        "id": "user-001",
+        "username": "techguru",
+        "firstName": "Alex",
+        "lastName": "Martinez",
+        "email": "alex.martinez@example.com",
+        "joined": "2023-06-15T10:30:00Z",
+        "profile": {
+          "avatar": "alex-avatar.jpg",
+          "bio": "Tech enthusiast and gadget reviewer",
+          "location": "San Francisco, CA",
+          "social": {
+            "twitter": "@techguru",
+            "instagram": "@alexmartinez",
+            "youtube": "TechWithAlex"
+          }
+        },
+        "preferences": {
+          "theme": "dark",
+          "notifications": true,
+          "newsletter": true
+        },
+        "recentActivity": [
+          {
+            "type": "review",
+            "productId": "prod-001",
+            "rating": 5,
+            "comment": "The best headphones I've ever owned!",
+            "date": "2025-04-28T14:20:00Z"
+          },
+          {
+            "type": "purchase",
+            "productId": "prod-002",
+            "date": "2025-04-15T09:45:00Z"
+          }
+        ]
+      },
+      {
+        "id": "user-002",
+        "username": "fitnessfan",
+        "firstName": "Sarah",
+        "lastName": "Johnson",
+        "email": "sarah.j@example.com",
+        "joined": "2024-01-10T15:45:00Z",
+        "profile": {
+          "avatar": "sarah-avatar.jpg",
+          "bio": "Fitness coach and wellness advocate",
+          "location": "Denver, CO",
+          "social": {
+            "twitter": "@fitnesswithsarah",
+            "instagram": "@sarahjfitness",
+            "youtube": "FitWithSarah"
+          }
+        },
+        "preferences": {
+          "theme": "light",
+          "notifications": true,
+          "newsletter": true
+        },
+        "recentActivity": [
+          {
+            "type": "review",
+            "productId": "prod-002",
+            "rating": 4,
+            "comment": "Great fitness tracker, very accurate!",
+            "date": "2025-05-05T11:15:00Z"
+          }
+        ]
+      }
+    ],
+    "blogPosts": [
+      {
+        "id": "post-001",
+        "title": "Getting Started with Rivr.js",
+        "slug": "getting-started-with-rivr-js",
+        "author": "user-001",
+        "publishDate": "2025-04-10T08:00:00Z",
+        "lastUpdated": "2025-04-15T14:30:00Z",
+        "excerpt": "Learn how to use the rivr.js framework to create dynamic data-driven websites with minimal code.",
+        "content": "Rivr.js is a lightweight JavaScript framework that makes it easy to bind JSON data to your HTML elements. With a simple class-based syntax...",
+        "categories": ["tutorials", "javascript", "frontend"],
+        "tags": ["rivr.js", "data-binding", "tutorial", "beginner"],
+        "featured": true,
+        "featuredImage": "rivr-tutorial.jpg",
+        "comments": [
+          {
+            "id": "comment-001",
+            "userId": "user-002",
+            "text": "This tutorial was incredibly helpful! I was able to implement rivr.js in my project right away.",
+            "date": "2025-04-12T10:15:00Z"
+          }
+        ]
+      },
+      {
+        "id": "post-002",
+        "title": "Advanced Data Transformation with Rivr.js",
+        "slug": "advanced-data-transformation-with-rivr-js",
+        "author": "user-001",
+        "publishDate": "2025-04-25T09:30:00Z",
+        "lastUpdated": "2025-04-28T11:45:00Z",
+        "excerpt": "Take your rivr.js skills to the next level with custom data transformers and event handling.",
+        "content": "Once you've mastered the basics of rivr.js, you can leverage its powerful transformation capabilities to format and modify your data before rendering...",
+        "categories": ["tutorials", "javascript", "frontend"],
+        "tags": ["rivr.js", "advanced", "transformers", "events"],
+        "featured": false,
+        "featuredImage": "rivr-advanced.jpg",
+        "comments": []
+      }
+    ],
+    "stats": {
+      "userCount": 15873,
+      "activeUsers": 9452,
+      "totalProducts": 1245,
+      "totalOrders": 38721,
+      "revenue": {
+        "total": 2456789.50,
+        "lastMonth": 185432.75,
+        "lastWeek": 42567.30,
+        "growth": {
+          "monthly": 8.5,
+          "yearly": 24.3
+        }
+      },
+      "topCategories": [
+        { "name": "Electronics", "count": 423, "percentage": 34 },
+        { "name": "Clothing", "count": 287, "percentage": 23 },
+        { "name": "Home & Kitchen", "count": 178, "percentage": 14 },
+        { "name": "Books", "count": 156, "percentage": 13 },
+        { "name": "Beauty", "count": 97, "percentage": 8 }
+      ],
+      "userActivity": {
+        "daily": [120, 145, 132, 168, 172, 190, 178],
+        "weekly": [950, 1020, 980, 1150, 1220],
+        "monthly": [3850, 4120, 4350, 4560, 4780, 5120]
+      }
+    }
+  },
+  "ui": {
+    "theme": {
+      "primary": "#3a86ff",
+      "secondary": "#ff006e",
+      "success": "#38b000",
+      "warning": "#ffbe0b",
+      "danger": "#d90429",
+      "light": "#f8f9fa",
+      "dark": "#212529",
+      "borderRadius": "8px"
+    },
+    "layouts": [
+      { "id": "grid", "name": "Grid Layout", "class": "rivr-grid" },
+      { "id": "list", "name": "List Layout", "class": "rivr-list" },
+      { "id": "card", "name": "Card Layout", "class": "rivr-card" },
+      { "id": "table", "name": "Table Layout", "class": "rivr-table" }
+    ],
+    "components": [
+      { "id": "button", "name": "Button", "class": "rivr-btn" },
+      { "id": "badge", "name": "Badge", "class": "rivr-badge" },
+      { "id": "tag", "name": "Tag", "class": "rivr-tag" },
+      { "id": "card", "name": "Card", "class": "rivr-card" }
+    ]
+  },
+  "settings": {
+    "apiEndpoint": "https://api.example.com/v1",
+    "refreshInterval": 60000,
+    "cacheExpiration": 3600,
+    "defaultLayout": "grid",
+    "itemsPerPage": 12,
+    "debug": false,
+    "features": {
+      "darkMode": true,
+      "responsiveDesign": true,
+      "lazyLoading": true,
+      "animations": true
+    }
+  }
+};
   initRivr('.products', data, {
     transformers: {
       'price': function(value, item) {
