@@ -1,23 +1,30 @@
-<html>
-<head>
-
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script type="text/javascript">
-
-</script>
-</head>
-<body>
-<div class="controls">
-    <input type="text" id="product-search" placeholder="Search products...">
-    <select id="product-sort">
-        <option value="">Sort by...</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name">Name</option>
-    </select>
+<div class="products _-">
+  <div class="product _-_">
+    <div class="product-header">
+      <h2 class="_-name"></h2>
+      <span class="brand _-brandName"></span>
+    </div>
+    
+    <div class="product-media _-images-">
+      <img class="_-thumb" alt="Product thumbnail" />
+      <div class="gallery-nav">
+        <!-- Additional images could be handled here -->
+      </div>
+    </div>
+    
+    <div class="product-info">
+      <div class="description _-description"></div>
+      <div class="pricing">
+        <span class="price _-price"></span>
+        <span class="original-price _-listPrice"></span>
+      </div>
+    </div>
+    
+    <div class="product-actions _-">
+      <a class="_-link">
+        <button class="buy-button">Add to Cart</button>
+      </a>
+      <button class="wishlist-btn" data-id="_-id">♡</button>
+    </div>
+  </div>
 </div>
-<div class="error-message"></div>
-<script type="text/javascript" src="rivr.js"></script>
-<script type="text/javascript" src="main.js"></script>
-</body>
-</html>
