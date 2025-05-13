@@ -312,16 +312,30 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Use initRivr instead of rivr directly
   initRivr('.products', data.examples.products, {
+    debug: false, // Set to true to see console warnings
     transformers: {
       'price': function(value, item) {
-        return value ? '$' + value : '$' + item.listPrice;
+        return '$' + (value || item.discountedPrice || 0).toFixed(2);
+      },
+      'listPrice': function(value, item) {
+        return '$' + (item.price || 0).toFixed(2);
       },
       'description': function(value) {
         return value.length > 100 ? value.substring(0, 97) + '...' : value;
       },
       'images-thumb': function(value, item) {
-        // Just return a placeholder for testing
-        return value || 'https://placehold.co/600x400';
+        // First try to get the thumbnail from nested structure
+        if (item.images && item.images.thumbnail) {
+          return item.images.thumbnail;
+        }
+        // Fallback to placeholder
+        return 'https://placehold.co/600x400';
+      },
+      'brandName': function(value, item) {
+        return item.specs && item.specs.brand ? item.specs.brand : '';
+      },
+      'link': function(value, item) {
+        return '#product-' + item.id;
       }
     },
     events: {
