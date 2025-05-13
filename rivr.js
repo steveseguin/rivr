@@ -16,8 +16,39 @@ function rivr(json, stone, config) {
       'INPUT': 'value'
     },
     transformers: {},
-    events: {}
+    events: {},
+    debug: false
   };
+  
+  // Helper function to safely navigate nested properties
+  function getNestedValue(obj, path) {
+    if (!path) return obj;
+    const parts = path.split('-');
+    let current = obj;
+    
+    for (let i = 0; i < parts.length; i++) {
+      if (current === null || current === undefined) return undefined;
+      
+      // Handle array index notation [n]
+      const indexMatch = parts[i].match(/^(.+)\[(\d+)\]$/);
+      if (indexMatch) {
+        const propName = indexMatch[1];
+        const index = parseInt(indexMatch[2], 10);
+        current = current[propName];
+        if (Array.isArray(current) && index < current.length) {
+          current = current[index];
+        } else {
+          return undefined;
+        }
+      } else if (parts[i] === "") {
+        continue; // Skip empty segments
+      } else {
+        current = current[parts[i]];
+      }
+    }
+    
+    return current;
+  }
   
   // Process classes
   const classes = stone.className.split(" ");
@@ -41,13 +72,46 @@ function rivr(json, stone, config) {
       if (action === config.loopIndicator) {
         processedChildren = true;
         
-        // Handle non-array data by navigating to a nested property if it exists
+        // Handle non-array data by finding first array in the object
         if (!Array.isArray(currentJson)) {
-          // Check if we're at the top level and trying to loop through products
+          // Try to find a suitable array to loop through
+          let foundArray = null;
+          
+          // First check if we're at the top level and trying to loop through products
           if (stone.classList.contains('products') && currentJson.examples && Array.isArray(currentJson.examples.products)) {
-            currentJson = currentJson.examples.products;
+            foundArray = currentJson.examples.products;
+          } 
+          // Look for any array property that might be relevant
+          else if (typeof currentJson === 'object' && currentJson !== null) {
+            for (const key in currentJson) {
+              if (Array.isArray(currentJson[key])) {
+                const keyLower = key.toLowerCase();
+                const classListStr = Array.from(stone.classList).join(' ').toLowerCase();
+                // Try to match the array name with the element class
+                if (classListStr.includes(keyLower) || keyLower.includes(classListStr.replace(/s$/, ''))) {
+                  foundArray = currentJson[key];
+                  break;
+                }
+              }
+            }
+            
+            // If still no match, use the first array found
+            if (!foundArray) {
+              for (const key in currentJson) {
+                if (Array.isArray(currentJson[key])) {
+                  foundArray = currentJson[key];
+                  break;
+                }
+              }
+            }
+          }
+          
+          if (foundArray) {
+            currentJson = foundArray;
           } else {
-            console.warn('rivr: Expected array for loop but got:', typeof currentJson);
+            if (config.debug) {
+              console.warn('rivr: Expected array for loop but got:', typeof currentJson);
+            }
             return stone;
           }
         }
@@ -74,12 +138,11 @@ function rivr(json, stone, config) {
           // Add event handlers if defined
           if (config.events && typeof config.events === 'object') {
             for (const eventName in config.events) {
-              if (currentJson[k].id) { // Add event only if item has ID for reference
-                clone.setAttribute('data-item-id', currentJson[k].id);
-                clone.addEventListener(eventName, function(e) {
-                  config.events[eventName](currentJson[k], e, this);
-                });
-              }
+              const itemId = currentJson[k].id || k;
+              clone.setAttribute('data-item-id', itemId);
+              clone.addEventListener(eventName, function(e) {
+                config.events[eventName](currentJson[k], e, this);
+              });
             }
           }
           
@@ -104,17 +167,48 @@ function rivr(json, stone, config) {
           }
         } else {
           // Process data field mapping
-          const key = action;
-          const value = currentJson[key];
+          const pathRemainder = actions.slice(z).join("-");
+          const value = getNestedValue(currentJson, pathRemainder);
           
           // Skip if value is undefined
           if (value === undefined) {
-            console.warn(`rivr: Key '${key}' not found in JSON`, currentJson);
-            continue;
+            // Check for aliased/alternative properties
+            const aliases = {
+              'brandName': ['brand', 'specs.brand', 'manufacturer'],
+              'thumb': ['thumbnail', 'images.thumbnail', 'image', 'src', 'avatar'],
+              'link': ['url', 'href'],
+              'listPrice': ['originalPrice', 'msrp', 'fullPrice']
+            };
+            
+            const key = pathRemainder;
+            let foundValue = undefined;
+            
+            // Try aliases if they exist for this key
+            if (aliases[key]) {
+              for (const alias of aliases[key]) {
+                foundValue = getNestedValue(currentJson, alias);
+                if (foundValue !== undefined) break;
+              }
+            }
+            
+            // Still no value, log warning and continue
+            if (foundValue === undefined) {
+              if (config.debug) {
+                console.warn(`rivr: Key '${key}' not found in JSON`, currentJson);
+              }
+              continue;
+            } else {
+              // Use the alias value
+              value = foundValue;
+            }
           }
           
           // Apply transformers if defined
           let transformedValue = value;
+          
+          // Get last part of the path to use as key for transformer
+          const key = pathRemainder.split('-').pop();
+          
           if (config.transformers && config.transformers[key]) {
             transformedValue = config.transformers[key](value, currentJson);
           }
@@ -134,10 +228,24 @@ function rivr(json, stone, config) {
       } 
       // Navigate deeper into JSON
       else {
-        currentJson = currentJson[action];
-        if (currentJson === undefined) {
-          console.warn(`rivr: Path segment '${action}' not found`, json);
-          return stone;
+        // Handle multiple segments in one go using getNestedValue
+        if (z === 1) { // Only on first action segment
+          const pathSegment = actions.slice(1, z + 1).join('-');
+          currentJson = getNestedValue(json, pathSegment);
+          if (currentJson === undefined) {
+            if (config.debug) {
+              console.warn(`rivr: Path segment '${pathSegment}' not found`, json);
+            }
+            return stone;
+          }
+        } else {
+          currentJson = currentJson[action];
+          if (currentJson === undefined) {
+            if (config.debug) {
+              console.warn(`rivr: Path segment '${action}' not found`, json);
+            }
+            return stone;
+          }
         }
       }
     }
@@ -181,6 +289,7 @@ function initRivr(selector, jsonData, options) {
     },
     transformers: {},
     events: {},
+    debug: false,
     onRender: null
   }, options || {});
   
