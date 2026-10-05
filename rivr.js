@@ -168,7 +168,7 @@ function rivr(json, stone, config) {
         } else {
           // Process data field mapping
           const pathRemainder = actions.slice(z).join("-");
-          const value = getNestedValue(currentJson, pathRemainder);
+          let value = getNestedValue(currentJson, pathRemainder);
           
           // Skip if value is undefined
           if (value === undefined) {
