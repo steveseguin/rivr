@@ -1,3 +1,6 @@
+// Keep pristine templates so loading indicators and earlier renders do not replace them.
+const rivrTemplates = new WeakMap();
+
 function rivr(json, stone, config) {
   // Base case for recursion
   if (!stone || typeof stone.className === "undefined") return stone;
@@ -294,7 +297,8 @@ function initRivr(selector, jsonData, options) {
   }, options || {});
   
   // Clone the container to preserve the template
-  const template = container.cloneNode(true);
+  const originalTemplate = rivrTemplates.get(container) || container.cloneNode(true);
+  const template = originalTemplate.cloneNode(true);
   
   // Process the template with JSON data
   rivr(jsonData, template, config);
@@ -304,6 +308,7 @@ function initRivr(selector, jsonData, options) {
   
   // Replace original container
   container.parentNode.replaceChild(template, container);
+  rivrTemplates.set(template, originalTemplate);
     
   // Call onRender callback if provided
   if (typeof config.onRender === 'function') {
@@ -321,6 +326,11 @@ function rivrLoad(selector, url, options) {
     return Promise.reject('Container not found');
   }
   
+  // Save the template before replacing its contents with the loading state.
+  if (!rivrTemplates.has(container)) {
+    rivrTemplates.set(container, container.cloneNode(true));
+  }
+
   // Show loading state
   if (options && options.loadingTemplate) {
     container.innerHTML = options.loadingTemplate;
