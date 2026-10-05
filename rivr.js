@@ -149,9 +149,8 @@ function rivr(json, stone, config) {
           fragment.appendChild(clone);
         }
         
-        const wrapper = document.createElement('div');
-        wrapper.appendChild(fragment);
-        stone.outerHTML = wrapper.innerHTML;
+        // Insert the actual nodes to preserve their event listeners.
+        stone.replaceWith(fragment);
         return null; // Signal that this node has been processed
       } 
       // Handle final action
